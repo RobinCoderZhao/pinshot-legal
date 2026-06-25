@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinShot — Terms of Service & Disclaimer</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-accent: #0071e3;
+            --color-border: #d2d2d7;
+            --color-surface: #f5f5f7;
+            --color-negative: #ff3b30;
+            --max-width: 720px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #000000;
+                --color-text: #f5f5f7;
+                --color-text-secondary: #a1a1a6;
+                --color-accent: #2997ff;
+                --color-border: #424245;
+                --color-surface: #1d1d1f;
+                --color-negative: #ff453a;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            border-bottom: 1px solid var(--color-border);
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 24px auto 0;
+            max-width: var(--max-width);
+            padding: 0 24px;
+        }
+
+        .lang-switcher button {
+            padding: 8px 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button.active {
+            background: var(--color-accent);
+            color: #ffffff;
+            border-color: var(--color-accent);
+        }
+
+        .lang-switcher button:hover:not(.active) {
+            border-color: var(--color-accent);
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--color-text);
+            font-size: 15px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .alert-box {
+            background-color: var(--color-surface);
+            border-left: 4px solid var(--color-negative);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .alert-box strong {
+            color: var(--color-negative);
+        }
+
+        .contact-box {
+            background-color: var(--color-surface);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--color-border);
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--color-text-secondary);
+            font-size: 12px;
+            border-top: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PinShot</h1>
+        <p id="subtitle">Terms of Service & Disclaimer / 服务条款与免责声明</p>
+    </header>
+
+    <div class="lang-switcher">
+        <button id="btn-en" class="active" onclick="switchLanguage('en')">English</button>
+        <button id="btn-zh" onclick="switchLanguage('zh')">简体中文</button>
+    </div>
+
+    <main>
+        <!-- English -->
+        <div id="content-en" class="content-section active">
+            <p><em>Effective Date: June 25, 2026</em></p>
+            <p>Welcome to PinShot! Please read these Terms of Service and Disclaimer ("Terms") carefully before using the PinShot mobile and desktop applications ("App" or "Service") developed by Robin ("we", "us", or "our").</p>
+            <p>By accessing or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the App.</p>
+
+            <h2>1. Use of the App</h2>
+            <p>PinShot provides GPS track logging and photo/video geotagging services. The geotagging process modifies the metadata (EXIF/XMP) of your photos and videos.</p>
+
+            <h2>2. Disclaimer of Warranties</h2>
+            <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+            <p>WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, SECURE, ACCURATE, OR ERROR-FREE, OR THAT ANY GEOTAGGED METADATA WILL BE PERFECTLY PRESERVED OR FORMATTED FOR ALL DEVICE TYPES.</p>
+
+            <h2>3. Limitation of Liability & Exclusion of Damages</h2>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, OR USE, INCURRED BY YOU OR ANY THIRD PARTY, ARISING OUT OF OR IN CONNECTION WITH:</p>
+            <ul>
+                <li>THE USE OF OR INABILITY TO USE THE APP;</li>
+                <li>ANY ACCIDENTAL LOSS, DELETION, CORRUPTION, OR ALTERATION OF PHOTOS, VIDEOS, GPS LOGS, OR OTHER MEDIA FILES DURING BATCH SCANNING OR METADATA WRITING;</li>
+                <li>ANY HARDWARE DAMAGE, DATA CORRUPTION ON SD CARDS, USB DRIVES, OR INTERNAL STORAGE IN CONNECTION WITH THE APP'S IN-PLACE FILE WRITING.</li>
+            </ul>
+
+            <div class="alert-box">
+                <p><strong>IMPORTANT BACKUP NOTICE:</strong> The App performs local directory scans and modifies file headers in-place (especially on macOS). Although we implement strict transactional verification and temporary back-up systems to mitigate risks, file system errors, connection dropouts, or power failures can still cause file corruption.</p>
+                <p><strong>YOU ARE STRONGLY ADVISED TO FULLY BACK UP ALL ORIGINAL PHOTOS, VIDEOS, AND STORAGE MEDIA BEFORE USING THE APP'S GEOTAGGING OR BATCH PROCESSING FEATURES.</strong></p>
+            </div>
+
+            <h2>4. Subscriptions & Refund Policy</h2>
+            <p>Subscription transactions, renewals, and cancellations are handled entirely through Apple’s App Store and StoreKit services. Any refund requests must be initiated by the user through Apple’s official channels (reportaproblem.apple.com). We do not have direct access to your payment accounts or purchase details.</p>
+
+            <h2>5. Contact Us</h2>
+            <p>If you have any questions or concerns about these Terms, please contact us at:</p>
+            <div class="contact-box">
+                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
+            </div>
+        </div>
+
+        <!-- Chinese -->
+        <div id="content-zh" class="content-section">
+            <p><em>生效日期：2026年6月25日</em></p>
+            <p>欢迎使用 PinShot！在使用由 Robin（“我们”）开发的 PinShot 手机端及桌面端应用程序（“本应用”或“服务”）之前，请仔细阅读本《服务条款与免责声明》（“条款”）。</p>
+            <p>访问或使用本应用即表示您同意受这些条款的约束。如果您不同意这些条款，请勿使用本应用。</p>
+
+            <h2>1. 服务内容</h2>
+            <p>PinShot 提供 GPS 轨迹记录与照片/视频地理位置标记服务。标记过程涉及对您的媒体文件元数据 (EXIF/XMP) 区域进行就地读写和修改。</p>
+
+            <h2>2. 免责声明</h2>
+            <p>本应用按“现状”和“现有”状态提供，不附加任何形式的明示或暗示保证。我们不保证本应用能完全满足您的要求，不保证定位服务的连续性、安全性、零误差，亦不保证标记后的文件元数据与所有第三方查看器或编辑软件完全兼容。</p>
+
+            <h2>3. 责任限制与损害赔偿排除</h2>
+            <p>在法律允许的最大范围内，开发者不对您或任何第三方因使用或无法使用本应用而导致的任何直接、间接、偶发、特殊、附随或惩罚性损害（包括但不限于数据丢失、文件损坏、照片或视频损毁、SD卡/移动硬盘等存储介质损坏、利润损失等）承担赔偿责任。</p>
+            <p>这包括但不限于在“批量文件夹标记”或“视频写入”操作中，由于磁盘空间不足、设备电量耗尽关机、拔卡中断、硬件故障或系统异常导致的文件读写不完整及媒体损坏。</p>
+
+            <div class="alert-box">
+                <p><strong>强烈建议数据备份：</strong> 本应用在进行地理标记（尤其是桌面端文件夹批量标记）时，需要原地（In-Place）修改文件头部数据。尽管我们在技术上采用了事务备份、临时文件校验等极高安全等级的安全自愈算法，但在极端情况下（例如系统死机、传输中断等）依然存在损坏文件的可能。</p>
+                <p><strong>我们强烈建议您：在每次使用本应用进行照片与视频地理标记或批量处理之前，务必对所有的原始照片、视频源文件及存储设备进行完整备份。</strong></p>
+            </div>
+
+            <h2>4. 订阅及退款政策</h2>
+            <p>所有内购订阅的支付、续期及取消服务完全托管于苹果 App Store 系统。任何退款申请需要您直接通过苹果官方支持渠道 (reportaproblem.apple.com) 发起，开发者无权直接访问您的付款账单或干预退款审批。</p>
+
+            <h2>5. 联系我们</h2>
+            <p>如果您对本条款有任何问题或疑虑，请通过以下方式联系我们：</p>
+            <div class="contact-box">
+                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2026 Robin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switcher button').forEach(el => el.classList.remove('active'));
+
+            if (lang === 'zh') {
+                document.getElementById('content-zh').classList.add('active');
+                document.getElementById('btn-zh').classList.add('active');
+                document.title = "PinShot — 服务条款与免责声明";
+            } else {
+                document.getElementById('content-en').classList.add('active');
+                document.getElementById('btn-en').classList.add('active');
+                document.title = "PinShot — Terms of Service & Disclaimer";
+            }
+        }
+    </script>
+</body>
+</html>

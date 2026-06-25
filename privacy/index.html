@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinShot — Privacy Policy</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-accent: #0071e3;
+            --color-border: #d2d2d7;
+            --color-surface: #f5f5f7;
+            --color-negative: #ff3b30;
+            --max-width: 720px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #000000;
+                --color-text: #f5f5f7;
+                --color-text-secondary: #a1a1a6;
+                --color-accent: #2997ff;
+                --color-border: #424245;
+                --color-surface: #1d1d1f;
+                --color-negative: #ff453a;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            border-bottom: 1px solid var(--color-border);
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 24px auto 0;
+            max-width: var(--max-width);
+            padding: 0 24px;
+        }
+
+        .lang-switcher button {
+            padding: 8px 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switcher button.active {
+            background: var(--color-accent);
+            color: #ffffff;
+            border-color: var(--color-accent);
+        }
+
+        .lang-switcher button:hover:not(.active) {
+            border-color: var(--color-accent);
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin: 8px 0;
+            color: var(--color-text);
+        }
+
+        .highlight {
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        th {
+            background: var(--color-surface);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-text-secondary);
+        }
+
+        .no-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .no-list li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .no-list li .icon {
+            color: var(--color-negative);
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .yes-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .yes-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .yes-list li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .contact-box {
+            background: var(--color-surface);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--color-text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📍 PinShot</h1>
+        <p>Privacy Policy</p>
+    </header>
+
+    <div class="lang-switcher">
+        <button class="active" onclick="switchLang('en')">English</button>
+        <button onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <main>
+        <!-- English -->
+        <div id="content-en" class="content-section active">
+            <h2>Introduction</h2>
+            <p>PinShot ("the App") is a GPS photo geotagging application developed by Robin ("we", "us", or "our"). This Privacy Policy explains how we collect, use, and protect your information when you use PinShot.</p>
+            <p>We are committed to protecting your privacy. PinShot is designed with a <span class="highlight">privacy-first architecture</span> — your data stays on your device by default and remains under your control.</p>
+
+            <h2>Information We Collect</h2>
+            <p>PinShot collects the following data <span class="highlight">locally on your device</span>:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Details</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GPS Coordinates</td>
+                        <td>Latitude, longitude, altitude, speed, heading</td>
+                        <td>Record location tracks for photo geotagging</td>
+                    </tr>
+                    <tr>
+                        <td>Motion Data</td>
+                        <td>Device movement status</td>
+                        <td>Detect stillness to pause GPS and save battery</td>
+                    </tr>
+                    <tr>
+                        <td>Photo Metadata</td>
+                        <td>EXIF data from your photo library</td>
+                        <td>Identify photos without GPS data and write coordinates</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>How Your Data Is Stored</h2>
+            <ul class="yes-list">
+                <li><strong>Local by Default</strong> — GPS tracks, settings, and processing data are stored on your device unless you explicitly enable iCloud sync.</li>
+                <li><strong>Optional iCloud Sync</strong> — Pro users can sync data to their own personal account using Apple's iCloud Documents storage. We do not operate any track servers and have no access to your iCloud data.</li>
+                <li><strong>No Cloud Servers</strong> — We do not operate, maintain, or use any third-party cloud servers or databases.</li>
+            </ul>
+
+            <h2>Data We Do NOT Collect</h2>
+            <ul class="no-list">
+                <li><span class="icon">✕</span> No analytics or usage tracking</li>
+                <li><span class="icon">✕</span> No advertising SDKs or ad identifiers</li>
+                <li><span class="icon">✕</span> No third-party data sharing</li>
+                <li><span class="icon">✕</span> No user accounts or registration</li>
+                <li><span class="icon">✕</span> No network requests to our servers (we have none)</li>
+                <li><span class="icon">✕</span> No crash reporting to third parties</li>
+            </ul>
+
+            <h2>Third-Party Sharing</h2>
+            <p>We do <strong>not</strong> share, sell, rent, or trade your personal data with any third parties.</p>
+
+            <h2>Data Deletion</h2>
+            <ul class="yes-list">
+                <li><strong>Delete GPS Tracks</strong> — Remove individual tracks or all track data within the App.</li>
+                <li><strong>Delete All Data</strong> — Go to <strong>Settings &gt; Storage Management</strong> to delete all locally stored data.</li>
+                <li><strong>Uninstall</strong> — Removing the App from your device deletes all associated local data.</li>
+                <li><strong>iCloud Data</strong> — If you used iCloud sync, you can manage and delete synced data through your device's iCloud storage settings.</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>PinShot does not knowingly collect personal information from children under 13. The App does not require any account creation or personal information input.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be reflected in the App and on this page with an updated effective date.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+            <div class="contact-box">
+                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
+            </div>
+        </div>
+
+        <!-- Chinese -->
+        <div id="content-zh" class="content-section">
+            <h2>简介</h2>
+            <p>PinShot（"本应用"）是由 Robin（"我们"）开发的 GPS 照片地理标记应用程序。本隐私政策说明了当您使用 PinShot 时，我们如何收集、使用和保护您的信息。</p>
+            <p>我们致力于保护您的隐私。PinShot 采用<span class="highlight">隐私优先架构</span>设计 — 您的数据始终保存在您的设备上，由您完全掌控。</p>
+
+            <h2>我们收集的信息</h2>
+            <p>PinShot <span class="highlight">仅在您的设备本地</span>收集以下数据：</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>数据类型</th>
+                        <th>详情</th>
+                        <th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GPS 坐标</td>
+                        <td>纬度、经度、海拔、速度、航向</td>
+                        <td>记录位置轨迹，用于照片地理标记</td>
+                    </tr>
+                    <tr>
+                        <td>运动数据</td>
+                        <td>设备运动状态</td>
+                        <td>检测静止状态以暂停 GPS，节省电量</td>
+                    </tr>
+                    <tr>
+                        <td>照片元数据</td>
+                        <td>照片库中的 EXIF 数据</td>
+                        <td>识别没有 GPS 数据的照片并写入坐标</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>数据存储方式</h2>
+            <ul class="yes-list">
+                <li><strong>默认本地存储</strong> — GPS 轨迹、设置和处理数据默认保存在您的设备上，除非您主动开启 iCloud 同步。</li>
+                <li><strong>可选 iCloud 同步</strong> — Pro 用户可以将数据同步到自己个人的 Apple iCloud Documents 存储。我们不运营轨迹服务器，也无法访问您的 iCloud 数据。</li>
+                <li><strong>无云服务器</strong> — 我们不运营、维护或使用任何第三方云服务器或数据库。</li>
+            </ul>
+
+            <h2>我们不收集的数据</h2>
+            <ul class="no-list">
+                <li><span class="icon">✕</span> 无分析或使用跟踪</li>
+                <li><span class="icon">✕</span> 无广告 SDK 或广告标识符</li>
+                <li><span class="icon">✕</span> 无第三方数据共享</li>
+                <li><span class="icon">✕</span> 无用户账户或注册</li>
+                <li><span class="icon">✕</span> 无向我们服务器的网络请求（我们没有服务器）</li>
+                <li><span class="icon">✕</span> 无向第三方的崩溃报告</li>
+            </ul>
+
+            <h2>第三方共享</h2>
+            <p>我们<strong>不会</strong>与任何第三方共享、出售、出租或交易您的个人数据。</p>
+
+            <h2>数据删除</h2>
+            <ul class="yes-list">
+                <li><strong>删除 GPS 轨迹</strong> — 在应用内删除单条轨迹或所有轨迹数据。</li>
+                <li><strong>删除所有数据</strong> — 前往 <strong>设置 &gt; 存储管理</strong> 删除所有本地存储的数据。</li>
+                <li><strong>卸载应用</strong> — 从设备上删除应用将删除所有关联的本地数据。</li>
+                <li><strong>iCloud 数据</strong> — 如果您使用了 iCloud 同步，可以通过设备的 iCloud 存储设置管理和删除同步数据。</li>
+            </ul>
+
+            <h2>儿童隐私</h2>
+            <p>PinShot 不会故意收集 13 岁以下儿童的个人信息。本应用不要求创建任何账户或输入个人信息。</p>
+
+            <h2>政策变更</h2>
+            <p>我们可能会不时更新本隐私政策。任何变更将在应用内和本页面上以更新的生效日期反映。</p>
+
+            <h2>联系我们</h2>
+            <p>如果您对本隐私政策有任何问题或疑虑，请通过以下方式联系我们：</p>
+            <div class="contact-box">
+                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Effective Date: 2026-06-23 &nbsp;|&nbsp; © 2026 Robin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
