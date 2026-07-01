@@ -215,8 +215,8 @@
 </head>
 <body>
     <header>
-        <h1>📍 PinShot</h1>
-        <p>Privacy Policy</p>
+        <h1 id="app-title">📍 PinShot</h1>
+        <p id="subtitle">Privacy Policy</p>
     </header>
 
     <div class="lang-switcher">
@@ -388,6 +388,16 @@
             document.getElementById('content-' + lang).classList.add('active');
             document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+
+            if (lang === 'zh') {
+                document.getElementById('app-title').textContent = '📍 影像轨迹';
+                document.getElementById('subtitle').textContent = '隐私政策';
+                document.title = '影像轨迹 — 隐私政策';
+            } else {
+                document.getElementById('app-title').textContent = '📍 PinShot';
+                document.getElementById('subtitle').textContent = 'Privacy Policy';
+                document.title = 'PinShot — Privacy Policy';
+            }
         }
     </script>
 </body>

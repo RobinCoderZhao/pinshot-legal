@@ -185,7 +185,7 @@
 <body>
 
     <header>
-        <h1>PinShot</h1>
+        <h1 id="app-title">PinShot</h1>
         <p id="subtitle">Terms of Service & Disclaimer / 服务条款与免责声明</p>
     </header>
 
@@ -275,10 +275,14 @@
             if (lang === 'zh') {
                 document.getElementById('content-zh').classList.add('active');
                 document.getElementById('btn-zh').classList.add('active');
+                document.getElementById('app-title').textContent = "影像轨迹";
+                document.getElementById('subtitle').textContent = "服务条款与免责声明";
                 document.title = "影像轨迹 — 服务条款与免责声明";
             } else {
                 document.getElementById('content-en').classList.add('active');
                 document.getElementById('btn-en').classList.add('active');
+                document.getElementById('app-title').textContent = "PinShot";
+                document.getElementById('subtitle').textContent = "Terms of Service & Disclaimer";
                 document.title = "PinShot — Terms of Service & Disclaimer";
             }
         }
