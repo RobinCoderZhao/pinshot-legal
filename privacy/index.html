@@ -228,7 +228,7 @@
         <!-- English -->
         <div id="content-en" class="content-section active">
             <h2>Introduction</h2>
-            <p>PinShot ("the App") is a GPS photo geotagging application developed by Robin ("we", "us", or "our"). This Privacy Policy explains how we collect, use, and protect your information when you use PinShot.</p>
+            <p>PinShot ("the App") is an iOS and macOS GPS photo/video geotagging application developed by Robin ("we", "us", or "our"). This Privacy Policy explains how we process, store, and protect information when you use PinShot.</p>
             <p>We are committed to protecting your privacy. PinShot is designed with a <span class="highlight">privacy-first architecture</span> — your data stays on your device by default and remains under your control.</p>
 
             <h2>Information We Collect</h2>
@@ -244,27 +244,38 @@
                 <tbody>
                     <tr>
                         <td>GPS Coordinates</td>
-                        <td>Latitude, longitude, altitude, speed, heading</td>
-                        <td>Record location tracks for photo geotagging</td>
+                        <td>Latitude, longitude, altitude, speed, heading, timestamp</td>
+                        <td>Record location tracks and match capture times for geotagging</td>
                     </tr>
                     <tr>
-                        <td>Motion Data</td>
-                        <td>Device movement status</td>
-                        <td>Detect stillness to reduce GPS logging frequency and save battery</td>
+                        <td>Motion and Altitude Data</td>
+                        <td>Device movement status and, when available, barometer-based relative altitude</td>
+                        <td>Detect stillness, reduce GPS logging frequency, save battery, and improve altitude readings</td>
                     </tr>
                     <tr>
-                        <td>Photo Metadata</td>
-                        <td>EXIF data from your photo library</td>
-                        <td>Identify photos without GPS data and write coordinates</td>
+                        <td>Photo and Video Metadata</td>
+                        <td>EXIF/XMP, capture time, media type, and existing location metadata from the Photos library or files you select</td>
+                        <td>Identify media without GPS data and write location coordinates to photos, Live Photos, and videos</td>
+                    </tr>
+                    <tr>
+                        <td>Local Processing Data</td>
+                        <td>App settings, scan checkpoints, pending media identifiers, ignored media identifiers, imported log source names, and recording sessions</td>
+                        <td>Resume scans, avoid repeatedly showing ignored media, choose GPS data sources, and verify that media was captured during a recording period</td>
+                    </tr>
+                    <tr>
+                        <td>Location Log Files</td>
+                        <td>Local, imported, exported, or optionally synced .bin GPS logs and related session files</td>
+                        <td>Store tracks, transfer logs between your own devices, and support photo/video geotagging</td>
                     </tr>
                 </tbody>
             </table>
 
             <h2>How Your Data Is Stored</h2>
             <ul class="yes-list">
-                <li><strong>Local by Default</strong> — GPS tracks, settings, and processing data are stored on your device unless you explicitly enable iCloud sync.</li>
-                <li><strong>Optional iCloud Sync</strong> — Pro users can sync data to their own personal account using Apple's iCloud Documents storage. We do not operate any track servers and have no access to your iCloud data.</li>
-                <li><strong>No Cloud Servers</strong> — We do not operate, maintain, or use any third-party cloud servers or databases.</li>
+                <li><strong>Local by Default</strong> — GPS tracks, settings, scan checkpoints, ignored-item records, imported-source records, and processing data are stored on your device unless you explicitly enable iCloud sync.</li>
+                <li><strong>Optional iCloud Sync</strong> — Pro users can sync GPS log data to their own personal account using Apple's iCloud Documents storage. We do not operate any track servers and have no access to your iCloud data.</li>
+                <li><strong>User-Controlled Import and Export</strong> — Imported .bin files and exported BIN/GPX files are created only when you choose those actions. Files selected from Finder, SD cards, external drives, or the Photos library are processed locally.</li>
+                <li><strong>No Cloud Servers</strong> — We do not operate, maintain, or use any third-party cloud servers or databases for your tracks or media.</li>
             </ul>
 
             <h2>Data We Do NOT Collect</h2>
@@ -282,9 +293,10 @@
 
             <h2>Data Deletion</h2>
             <ul class="yes-list">
-                <li><strong>Delete GPS Tracks</strong> — Remove individual tracks or all track data within the App.</li>
-                <li><strong>Delete All Data</strong> — Go to <strong>Settings &gt; Storage Management</strong> to delete all locally stored data.</li>
-                <li><strong>Uninstall</strong> — Removing the App from your device deletes all associated local data.</li>
+                <li><strong>Delete GPS Tracks</strong> — Remove individual monthly logs, clean expired logs, or delete all local GPS log data within the App.</li>
+                <li><strong>Clear Processing Records</strong> — Clear ignored media records, pending scan results, and imported log sources from the App. Deleting GPS logs does not delete your photos or videos, but it may affect future location matching.</li>
+                <li><strong>Delete All Data</strong> — Go to <strong>Settings &gt; Storage Management</strong> to delete all locally stored app data.</li>
+                <li><strong>Uninstall</strong> — Removing the App from your device deletes its associated local data.</li>
                 <li><strong>iCloud Data</strong> — If you used iCloud sync, you can manage and delete synced data through your device's iCloud storage settings.</li>
             </ul>
 
@@ -304,7 +316,7 @@
         <!-- Chinese -->
         <div id="content-zh" class="content-section">
             <h2>简介</h2>
-            <p>影像轨迹（"本应用"）是由 Robin（"我们"）开发的 GPS 照片地理标记应用程序。本隐私政策说明了当您使用影像轨迹时，我们如何收集、使用和保护您的信息。</p>
+            <p>影像轨迹（"本应用"）是由 Robin（"我们"）开发的 iOS 与 macOS GPS 照片/视频地理标记应用程序。本隐私政策说明了当您使用影像轨迹时，我们如何处理、存储和保护相关信息。</p>
             <p>我们致力于保护您的隐私。影像轨迹采用<span class="highlight">隐私优先架构</span>设计 — 您的数据始终保存在您的设备上，由您完全掌控。</p>
 
             <h2>我们收集的信息</h2>
@@ -320,27 +332,38 @@
                 <tbody>
                     <tr>
                         <td>GPS 坐标</td>
-                        <td>纬度、经度、海拔、速度、航向</td>
-                        <td>记录位置轨迹，用于照片地理标记</td>
+                        <td>纬度、经度、海拔、速度、航向、时间戳</td>
+                        <td>记录位置轨迹，并按拍摄时间匹配照片/视频位置</td>
                     </tr>
                     <tr>
-                        <td>运动数据</td>
-                        <td>设备运动状态</td>
-                        <td>检测静止状态以降低 GPS 记录频率，节省电量</td>
+                        <td>运动与高度数据</td>
+                        <td>设备运动状态，以及可用时的气压计相对高度</td>
+                        <td>检测静止状态、降低 GPS 记录频率、节省电量，并改善海拔记录</td>
                     </tr>
                     <tr>
-                        <td>照片元数据</td>
-                        <td>照片库中的 EXIF 数据</td>
-                        <td>识别没有 GPS 数据的照片并写入坐标</td>
+                        <td>照片和视频元数据</td>
+                        <td>来自系统照片库或您选择文件的 EXIF/XMP、拍摄时间、媒体类型和已有位置信息</td>
+                        <td>识别没有 GPS 数据的媒体，并为照片、Live Photo 和视频写入位置坐标</td>
+                    </tr>
+                    <tr>
+                        <td>本地处理数据</td>
+                        <td>应用设置、扫描断点、待处理媒体标识、已忽略媒体标识、导入日志来源名称和录制会话</td>
+                        <td>恢复扫描进度、避免重复显示已忽略媒体、选择 GPS 数据来源，并确认媒体是否位于录制时段内</td>
+                    </tr>
+                    <tr>
+                        <td>位置日志文件</td>
+                        <td>本地、导入、导出或可选同步的 .bin GPS 日志及相关录制会话文件</td>
+                        <td>保存轨迹、在您自己的设备间转移日志，并支持照片/视频地理标记</td>
                     </tr>
                 </tbody>
             </table>
 
             <h2>数据存储方式</h2>
             <ul class="yes-list">
-                <li><strong>默认本地存储</strong> — GPS 轨迹、设置和处理数据默认保存在您的设备上，除非您主动开启 iCloud 同步。</li>
-                <li><strong>可选 iCloud 同步</strong> — Pro 用户可以将数据同步到自己个人的 Apple iCloud Documents 存储。我们不运营轨迹服务器，也无法访问您的 iCloud 数据。</li>
-                <li><strong>无云服务器</strong> — 我们不运营、维护或使用任何第三方云服务器或数据库。</li>
+                <li><strong>默认本地存储</strong> — GPS 轨迹、设置、扫描断点、忽略记录、导入来源记录和处理数据默认保存在您的设备上，除非您主动开启 iCloud 同步。</li>
+                <li><strong>可选 iCloud 同步</strong> — Pro 用户可以将 GPS 日志数据同步到自己个人的 Apple iCloud Documents 存储。我们不运营轨迹服务器，也无法访问您的 iCloud 数据。</li>
+                <li><strong>用户主动导入与导出</strong> — 导入 .bin 文件、导出 BIN/GPX 文件仅会在您主动选择相关操作时发生。来自 Finder、SD 卡、外置硬盘或系统照片库的文件均在本地处理。</li>
+                <li><strong>无云服务器</strong> — 我们不运营、维护或使用任何第三方云服务器或数据库来保存您的轨迹或媒体。</li>
             </ul>
 
             <h2>我们不收集的数据</h2>
@@ -358,9 +381,10 @@
 
             <h2>数据删除</h2>
             <ul class="yes-list">
-                <li><strong>删除 GPS 轨迹</strong> — 在应用内删除单条轨迹或所有轨迹数据。</li>
-                <li><strong>删除所有数据</strong> — 前往 <strong>设置 &gt; 存储管理</strong> 删除所有本地存储的数据。</li>
-                <li><strong>卸载应用</strong> — 从设备上删除应用将删除所有关联的本地数据。</li>
+                <li><strong>删除 GPS 轨迹</strong> — 在应用内删除单个月份日志、清理过期日志，或删除所有本地 GPS 日志数据。</li>
+                <li><strong>清除处理记录</strong> — 清空忽略媒体记录、待处理扫描结果和导入日志来源。删除 GPS 日志不会删除您的照片或视频，但可能影响之后的位置匹配。</li>
+                <li><strong>删除所有数据</strong> — 前往 <strong>设置 &gt; 存储管理</strong> 删除所有本地存储的应用数据。</li>
+                <li><strong>卸载应用</strong> — 从设备上删除应用将删除应用关联的本地数据。</li>
                 <li><strong>iCloud 数据</strong> — 如果您使用了 iCloud 同步，可以通过设备的 iCloud 存储设置管理和删除同步数据。</li>
             </ul>
 
@@ -379,7 +403,7 @@
     </main>
 
     <footer>
-        <p>Effective Date: 2026-06-23 &nbsp;|&nbsp; © 2026 Robin. All rights reserved.</p>
+        <p>Effective Date: 2026-07-03 &nbsp;|&nbsp; © 2026 Robin. All rights reserved.</p>
     </footer>
 
     <script>
