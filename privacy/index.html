@@ -13,7 +13,7 @@
             --color-border: #d2d2d7;
             --color-surface: #f5f5f7;
             --color-negative: #ff3b30;
-            --max-width: 720px;
+            --max-width: 760px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -28,11 +28,7 @@
             }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -48,21 +44,13 @@
             text-align: center;
         }
 
-        header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            color: var(--color-text-secondary);
-            font-size: 14px;
-            margin-top: 4px;
-        }
+        header h1 { font-size: 28px; font-weight: 700; }
+        header p { color: var(--color-text-secondary); font-size: 14px; margin-top: 4px; }
 
         .lang-switcher {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 8px;
             margin: 24px auto 0;
             max-width: var(--max-width);
@@ -70,7 +58,7 @@
         }
 
         .lang-switcher button {
-            padding: 8px 20px;
+            padding: 8px 16px;
             border: 1px solid var(--color-border);
             border-radius: 20px;
             background: var(--color-surface);
@@ -80,349 +68,171 @@
             transition: all 0.2s ease;
         }
 
-        .lang-switcher button.active {
-            background: var(--color-accent);
-            color: #ffffff;
-            border-color: var(--color-accent);
-        }
+        .lang-switcher button.active { background: var(--color-accent); color: #ffffff; border-color: var(--color-accent); }
+        .lang-switcher button:hover:not(.active) { border-color: var(--color-accent); }
 
-        .lang-switcher button:hover:not(.active) {
-            border-color: var(--color-accent);
-        }
+        main { max-width: var(--max-width); margin: 0 auto; padding: 32px 24px 64px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
 
-        main {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 32px 24px 64px;
-        }
+        h2 { font-size: 22px; font-weight: 600; margin: 32px 0 12px; }
+        h2:first-child { margin-top: 0; }
+        p { margin: 8px 0; color: var(--color-text); }
+        .highlight { font-weight: 600; }
 
-        .content-section {
-            display: none;
-        }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        th { background: var(--color-surface); font-weight: 600; font-size: 13px; color: var(--color-text-secondary); }
 
-        .content-section.active {
-            display: block;
-        }
+        .no-list, .yes-list { list-style: none; padding: 0; margin: 12px 0; }
+        .no-list li { padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
+        .no-list li .icon { color: var(--color-negative); flex-shrink: 0; font-size: 16px; }
+        .yes-list li { padding: 8px 0 8px 24px; position: relative; }
+        .yes-list li::before { content: "•"; position: absolute; left: 8px; color: var(--color-accent); font-weight: 700; }
 
-        h2 {
-            font-size: 22px;
-            font-weight: 600;
-            margin: 32px 0 12px;
-            letter-spacing: -0.3px;
-        }
+        .contact-box { background: var(--color-surface); border-radius: 12px; padding: 20px 24px; margin: 16px 0; text-align: center; }
+        .contact-box a { color: var(--color-accent); text-decoration: none; font-weight: 600; font-size: 18px; }
 
-        h2:first-child {
-            margin-top: 0;
-        }
-
-        p {
-            margin: 8px 0;
-            color: var(--color-text);
-        }
-
-        .highlight {
-            font-weight: 600;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 14px;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        th {
-            background: var(--color-surface);
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--color-text-secondary);
-        }
-
-        .no-list {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0;
-        }
-
-        .no-list li {
-            padding: 6px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .no-list li .icon {
-            color: var(--color-negative);
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-
-        .yes-list {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0;
-        }
-
-        .yes-list li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .yes-list li::before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: var(--color-accent);
-            font-weight: 700;
-        }
-
-        .contact-box {
-            background: var(--color-surface);
-            border-radius: 12px;
-            padding: 20px 24px;
-            margin: 16px 0;
-            text-align: center;
-        }
-
-        .contact-box a {
-            color: var(--color-accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .contact-box a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--color-text-secondary);
-            font-size: 13px;
-            border-top: 1px solid var(--color-border);
-        }
+        footer { text-align: center; padding: 24px; color: var(--color-text-secondary); font-size: 13px; border-top: 1px solid var(--color-border); }
     </style>
 </head>
 <body>
     <header>
-        <h1 id="app-title">📍 PinShot</h1>
+        <h1 id="app-title">PinShot</h1>
         <p id="subtitle">Privacy Policy</p>
     </header>
 
     <div class="lang-switcher">
-        <button class="active" onclick="switchLang('en')">English</button>
-        <button onclick="switchLang('zh')">中文</button>
+        <button id="btn-en" class="active" onclick="switchLanguage('en')">English</button>
+        <button id="btn-zh-Hans" onclick="switchLanguage('zh-Hans')">简体中文</button>
+        <button id="btn-zh-Hant" onclick="switchLanguage('zh-Hant')">繁體中文</button>
+        <button id="btn-ja" onclick="switchLanguage('ja')">日本語</button>
+        <button id="btn-es" onclick="switchLanguage('es')">Español</button>
+        <button id="btn-fr" onclick="switchLanguage('fr')">Français</button>
     </div>
 
     <main>
-        <!-- English -->
         <div id="content-en" class="content-section active">
             <h2>Introduction</h2>
             <p>PinShot ("the App") is an iOS and macOS GPS photo/video geotagging application developed by Robin ("we", "us", or "our"). This Privacy Policy explains how we process, store, and protect information when you use PinShot.</p>
             <p>We are committed to protecting your privacy. PinShot is designed with a <span class="highlight">privacy-first architecture</span> — your data stays on your device by default and remains under your control.</p>
-
             <h2>Information We Collect</h2>
             <p>PinShot collects the following data <span class="highlight">locally on your device</span>:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Data Type</th>
-                        <th>Details</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>GPS Coordinates</td>
-                        <td>Latitude, longitude, altitude, speed, heading, timestamp</td>
-                        <td>Record location tracks and match capture times for geotagging</td>
-                    </tr>
-                    <tr>
-                        <td>Motion and Altitude Data</td>
-                        <td>Device movement status and, when available, barometer-based relative altitude</td>
-                        <td>Detect stillness, reduce GPS logging frequency, save battery, and improve altitude readings</td>
-                    </tr>
-                    <tr>
-                        <td>Photo and Video Metadata</td>
-                        <td>EXIF/XMP, capture time, media type, and existing location metadata from the Photos library or files you select</td>
-                        <td>Identify media without GPS data and write location coordinates to photos, Live Photos, and videos</td>
-                    </tr>
-                    <tr>
-                        <td>Local Processing Data</td>
-                        <td>App settings, scan checkpoints, pending media identifiers, ignored media identifiers, imported log source names, and recording sessions</td>
-                        <td>Resume scans, avoid repeatedly showing ignored media, choose GPS data sources, and verify that media was captured during a recording period</td>
-                    </tr>
-                    <tr>
-                        <td>Location Log Files</td>
-                        <td>Local, imported, exported, or optionally synced .bin GPS logs and related session files</td>
-                        <td>Store tracks, transfer logs between your own devices, and support photo/video geotagging</td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <table><thead><tr><th>Data Type</th><th>Details</th><th>Purpose</th></tr></thead><tbody>
+                <tr><td>GPS Coordinates</td><td>Latitude, longitude, altitude, speed, heading, timestamp</td><td>Record location tracks and match capture times for geotagging</td></tr>
+                <tr><td>Motion and Altitude Data</td><td>Device movement status and, when available, barometer-based relative altitude</td><td>Detect stillness, reduce GPS logging frequency, save battery, and improve altitude readings</td></tr>
+                <tr><td>Photo and Video Metadata</td><td>EXIF/XMP, capture time, media type, and existing location metadata from the Photos library or files you select</td><td>Identify media without GPS data and write location coordinates to photos, Live Photos, and videos</td></tr>
+                <tr><td>Local Processing Data</td><td>App settings, scan checkpoints, pending media identifiers, ignored media identifiers, imported log source names, and recording sessions</td><td>Resume scans, avoid repeatedly showing ignored media, choose GPS data sources, and verify that media was captured during a recording period</td></tr>
+                <tr><td>Location Log Files</td><td>Local, imported, exported, or optionally synced .bin GPS logs and related session files</td><td>Store tracks, transfer logs between your own devices, and support photo/video geotagging</td></tr>
+            </tbody></table>
             <h2>How Your Data Is Stored</h2>
-            <ul class="yes-list">
-                <li><strong>Local by Default</strong> — GPS tracks, settings, scan checkpoints, ignored-item records, imported-source records, and processing data are stored on your device unless you explicitly enable iCloud sync.</li>
-                <li><strong>Optional iCloud Sync</strong> — Pro users can sync GPS log data to their own personal account using Apple's iCloud Documents storage. We do not operate any track servers and have no access to your iCloud data.</li>
-                <li><strong>User-Controlled Import and Export</strong> — Imported .bin files and exported BIN/GPX files are created only when you choose those actions. Files selected from Finder, SD cards, external drives, or the Photos library are processed locally.</li>
-                <li><strong>No Cloud Servers</strong> — We do not operate, maintain, or use any third-party cloud servers or databases for your tracks or media.</li>
-            </ul>
-
+            <ul class="yes-list"><li><strong>Local by Default</strong> — GPS tracks, settings, scan checkpoints, ignored-item records, imported-source records, and processing data are stored on your device unless you explicitly enable iCloud sync.</li><li><strong>Optional iCloud Sync</strong> — Pro users can sync GPS log data to their own personal account using Apple's iCloud Documents storage. We do not operate any track servers and have no access to your iCloud data.</li><li><strong>User-Controlled Import and Export</strong> — Imported .bin files and exported BIN/GPX files are created only when you choose those actions. Files selected from Finder, SD cards, external drives, or the Photos library are processed locally.</li><li><strong>No Cloud Servers</strong> — We do not operate, maintain, or use any third-party cloud servers or databases for your tracks or media.</li></ul>
             <h2>Data We Do NOT Collect</h2>
-            <ul class="no-list">
-                <li><span class="icon">✕</span> No analytics or usage tracking</li>
-                <li><span class="icon">✕</span> No advertising SDKs or ad identifiers</li>
-                <li><span class="icon">✕</span> No third-party data sharing</li>
-                <li><span class="icon">✕</span> No user accounts or registration</li>
-                <li><span class="icon">✕</span> No network requests to our servers (we have none)</li>
-                <li><span class="icon">✕</span> No crash reporting to third parties</li>
-            </ul>
-
-            <h2>Third-Party Sharing</h2>
-            <p>We do <strong>not</strong> share, sell, rent, or trade your personal data with any third parties.</p>
-
-            <h2>Data Deletion</h2>
-            <ul class="yes-list">
-                <li><strong>Delete GPS Tracks</strong> — Remove individual monthly logs, clean expired logs, or delete all local GPS log data within the App.</li>
-                <li><strong>Clear Processing Records</strong> — Clear ignored media records, pending scan results, and imported log sources from the App. Deleting GPS logs does not delete your photos or videos, but it may affect future location matching.</li>
-                <li><strong>Delete All Data</strong> — Go to <strong>Settings &gt; Storage Management</strong> to delete all locally stored app data.</li>
-                <li><strong>Uninstall</strong> — Removing the App from your device deletes its associated local data.</li>
-                <li><strong>iCloud Data</strong> — If you used iCloud sync, you can manage and delete synced data through your device's iCloud storage settings.</li>
-            </ul>
-
-            <h2>Children's Privacy</h2>
-            <p>PinShot does not knowingly collect personal information from children under 13. The App does not require any account creation or personal information input.</p>
-
-            <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. Any changes will be reflected in the App and on this page with an updated effective date.</p>
-
-            <h2>Contact Us</h2>
-            <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
-            <div class="contact-box">
-                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
-            </div>
+            <ul class="no-list"><li><span class="icon">✕</span> No analytics or usage tracking</li><li><span class="icon">✕</span> No advertising SDKs or ad identifiers</li><li><span class="icon">✕</span> No third-party data sharing</li><li><span class="icon">✕</span> No user accounts or registration</li><li><span class="icon">✕</span> No network requests to our servers (we have none)</li><li><span class="icon">✕</span> No crash reporting to third parties</li></ul>
+            <h2>Third-Party Sharing</h2><p>We do <strong>not</strong> share, sell, rent, or trade your personal data with any third parties.</p>
+            <h2>Data Deletion</h2><ul class="yes-list"><li><strong>Delete GPS Tracks</strong> — Remove individual monthly logs, clean expired logs, or delete all local GPS log data within the App.</li><li><strong>Clear Processing Records</strong> — Clear ignored media records, pending scan results, and imported log sources from the App. Deleting GPS logs does not delete your photos or videos, but it may affect future location matching.</li><li><strong>Delete All Data</strong> — Go to <strong>Settings &gt; Storage Management</strong> to delete all locally stored app data.</li><li><strong>Uninstall</strong> — Removing the App from your device deletes its associated local data.</li><li><strong>iCloud Data</strong> — If you used iCloud sync, you can manage and delete synced data through your device's iCloud storage settings.</li></ul>
+            <h2>Children's Privacy</h2><p>PinShot does not knowingly collect personal information from children under 13. The App does not require any account creation or personal information input.</p>
+            <h2>Changes to This Policy</h2><p>We may update this Privacy Policy from time to time. Any changes will be reflected in the App and on this page with an updated effective date.</p>
+            <h2>Contact Us</h2><p>If you have any questions or concerns about this Privacy Policy, please contact us:</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
         </div>
 
-        <!-- Chinese -->
-        <div id="content-zh" class="content-section">
-            <h2>简介</h2>
-            <p>影像轨迹（"本应用"）是由 Robin（"我们"）开发的 iOS 与 macOS GPS 照片/视频地理标记应用程序。本隐私政策说明了当您使用影像轨迹时，我们如何处理、存储和保护相关信息。</p>
-            <p>我们致力于保护您的隐私。影像轨迹采用<span class="highlight">隐私优先架构</span>设计 — 您的数据始终保存在您的设备上，由您完全掌控。</p>
+        <div id="content-zh-Hans" class="content-section">
+            <h2>简介</h2><p>影像轨迹（“本应用”）是由 Robin（“我们”）开发的 iOS 与 macOS GPS 照片/视频地理标记应用程序。本隐私政策说明了当您使用影像轨迹时，我们如何处理、存储和保护相关信息。</p><p>我们致力于保护您的隐私。影像轨迹采用<span class="highlight">隐私优先架构</span>设计 — 您的数据始终保存在您的设备上，由您完全掌控。</p>
+            <h2>我们收集的信息</h2><p>影像轨迹<span class="highlight">仅在您的设备本地</span>收集以下数据：</p>
+            <table><thead><tr><th>数据类型</th><th>详情</th><th>用途</th></tr></thead><tbody><tr><td>GPS 坐标</td><td>纬度、经度、海拔、速度、航向、时间戳</td><td>记录位置轨迹，并按拍摄时间匹配照片/视频位置</td></tr><tr><td>运动与高度数据</td><td>设备运动状态，以及可用时的气压计相对高度</td><td>检测静止状态、降低 GPS 记录频率、节省电量，并改善海拔记录</td></tr><tr><td>照片和视频元数据</td><td>来自系统照片库或您选择文件的 EXIF/XMP、拍摄时间、媒体类型和已有位置信息</td><td>识别没有 GPS 数据的媒体，并为照片、Live Photo 和视频写入位置坐标</td></tr><tr><td>本地处理数据</td><td>应用设置、扫描断点、待处理媒体标识、已忽略媒体标识、导入日志来源名称和录制会话</td><td>恢复扫描进度、避免重复显示已忽略媒体、选择 GPS 数据来源，并确认媒体是否位于录制时段内</td></tr><tr><td>位置日志文件</td><td>本地、导入、导出或可选同步的 .bin GPS 日志及相关录制会话文件</td><td>保存轨迹、在您自己的设备间转移日志，并支持照片/视频地理标记</td></tr></tbody></table>
+            <h2>数据存储方式</h2><ul class="yes-list"><li><strong>默认本地存储</strong> — GPS 轨迹、设置、扫描断点、忽略记录、导入来源记录和处理数据默认保存在您的设备上，除非您主动开启 iCloud 同步。</li><li><strong>可选 iCloud 同步</strong> — Pro 用户可以将 GPS 日志数据同步到自己个人的 Apple iCloud Documents 存储。我们不运营轨迹服务器，也无法访问您的 iCloud 数据。</li><li><strong>用户主动导入与导出</strong> — 导入 .bin 文件、导出 BIN/GPX 文件仅会在您主动选择相关操作时发生。来自 Finder、SD 卡、外置硬盘或系统照片库的文件均在本地处理。</li><li><strong>无云服务器</strong> — 我们不运营、维护或使用任何第三方云服务器或数据库来保存您的轨迹或媒体。</li></ul>
+            <h2>我们不收集的数据</h2><ul class="no-list"><li><span class="icon">✕</span> 无分析或使用跟踪</li><li><span class="icon">✕</span> 无广告 SDK 或广告标识符</li><li><span class="icon">✕</span> 无第三方数据共享</li><li><span class="icon">✕</span> 无用户账户或注册</li><li><span class="icon">✕</span> 无向我们服务器的网络请求（我们没有服务器）</li><li><span class="icon">✕</span> 无向第三方的崩溃报告</li></ul>
+            <h2>第三方共享</h2><p>我们<strong>不会</strong>与任何第三方共享、出售、出租或交易您的个人数据。</p><h2>数据删除</h2><ul class="yes-list"><li><strong>删除 GPS 轨迹</strong> — 在应用内删除单个月份日志、清理过期日志，或删除所有本地 GPS 日志数据。</li><li><strong>清除处理记录</strong> — 清空忽略媒体记录、待处理扫描结果和导入日志来源。删除 GPS 日志不会删除您的照片或视频，但可能影响之后的位置匹配。</li><li><strong>删除所有数据</strong> — 前往 <strong>设置 &gt; 存储管理</strong> 删除所有本地存储的应用数据。</li><li><strong>卸载应用</strong> — 从设备上删除应用将删除应用关联的本地数据。</li><li><strong>iCloud 数据</strong> — 如果您使用了 iCloud 同步，可以通过设备的 iCloud 存储设置管理和删除同步数据。</li></ul>
+            <h2>儿童隐私</h2><p>影像轨迹不会故意收集 13 岁以下儿童的个人信息。本应用不要求创建任何账户或输入个人信息。</p><h2>政策变更</h2><p>我们可能会不时更新本隐私政策。任何变更将在应用内和本页面上以更新的生效日期反映。</p><h2>联系我们</h2><p>如果您对本隐私政策有任何问题或疑虑，请通过以下方式联系我们：</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
+        </div>
 
-            <h2>我们收集的信息</h2>
-            <p>影像轨迹<span class="highlight">仅在您的设备本地</span>收集以下数据：</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>数据类型</th>
-                        <th>详情</th>
-                        <th>用途</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>GPS 坐标</td>
-                        <td>纬度、经度、海拔、速度、航向、时间戳</td>
-                        <td>记录位置轨迹，并按拍摄时间匹配照片/视频位置</td>
-                    </tr>
-                    <tr>
-                        <td>运动与高度数据</td>
-                        <td>设备运动状态，以及可用时的气压计相对高度</td>
-                        <td>检测静止状态、降低 GPS 记录频率、节省电量，并改善海拔记录</td>
-                    </tr>
-                    <tr>
-                        <td>照片和视频元数据</td>
-                        <td>来自系统照片库或您选择文件的 EXIF/XMP、拍摄时间、媒体类型和已有位置信息</td>
-                        <td>识别没有 GPS 数据的媒体，并为照片、Live Photo 和视频写入位置坐标</td>
-                    </tr>
-                    <tr>
-                        <td>本地处理数据</td>
-                        <td>应用设置、扫描断点、待处理媒体标识、已忽略媒体标识、导入日志来源名称和录制会话</td>
-                        <td>恢复扫描进度、避免重复显示已忽略媒体、选择 GPS 数据来源，并确认媒体是否位于录制时段内</td>
-                    </tr>
-                    <tr>
-                        <td>位置日志文件</td>
-                        <td>本地、导入、导出或可选同步的 .bin GPS 日志及相关录制会话文件</td>
-                        <td>保存轨迹、在您自己的设备间转移日志，并支持照片/视频地理标记</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="content-zh-Hant" class="content-section">
+            <h2>簡介</h2><p>影像軌跡（「本應用」）是由 Robin（「我們」）開發的 iOS 與 macOS GPS 照片/影片地理標記應用程式。本隱私政策說明當您使用影像軌跡時，我們如何處理、儲存和保護相關資訊。</p><p>我們致力於保護您的隱私。影像軌跡採用<span class="highlight">隱私優先架構</span>設計 — 您的資料預設保存在您的裝置上，並由您掌控。</p>
+            <h2>我們蒐集的資訊</h2><p>影像軌跡<span class="highlight">僅在您的裝置本機</span>蒐集以下資料：</p>
+            <table><thead><tr><th>資料類型</th><th>詳細資料</th><th>用途</th></tr></thead><tbody><tr><td>GPS 座標</td><td>緯度、經度、海拔、速度、航向、時間戳</td><td>記錄位置軌跡，並依拍攝時間匹配照片/影片位置</td></tr><tr><td>運動與高度資料</td><td>裝置運動狀態，以及可用時的氣壓計相對高度</td><td>偵測靜止狀態、降低 GPS 記錄頻率、節省電量，並改善海拔記錄</td></tr><tr><td>照片和影片元資料</td><td>來自系統照片圖庫或您選擇檔案的 EXIF/XMP、拍攝時間、媒體類型和既有位置資訊</td><td>識別沒有 GPS 資料的媒體，並為照片、Live Photo 和影片寫入位置座標</td></tr><tr><td>本機處理資料</td><td>應用設定、掃描中斷點、待處理媒體識別碼、已忽略媒體識別碼、匯入日誌來源名稱和錄製會話</td><td>恢復掃描進度、避免重複顯示已忽略媒體、選擇 GPS 資料來源，並確認媒體是否位於錄製時段內</td></tr><tr><td>位置日誌檔案</td><td>本機、匯入、匯出或可選同步的 .bin GPS 日誌及相關錄製會話檔案</td><td>保存軌跡、在您自己的裝置間轉移日誌，並支援照片/影片地理標記</td></tr></tbody></table>
+            <h2>資料儲存方式</h2><ul class="yes-list"><li><strong>預設本機儲存</strong> — GPS 軌跡、設定、掃描中斷點、忽略記錄、匯入來源記錄和處理資料預設保存在您的裝置上，除非您主動開啟 iCloud 同步。</li><li><strong>可選 iCloud 同步</strong> — Pro 使用者可以將 GPS 日誌資料同步到自己個人的 Apple iCloud Documents 儲存空間。我們不營運軌跡伺服器，也無法存取您的 iCloud 資料。</li><li><strong>使用者主動匯入與匯出</strong> — 匯入 .bin 檔案、匯出 BIN/GPX 檔案僅會在您主動選擇相關操作時發生。來自 Finder、SD 卡、外接硬碟或系統照片圖庫的檔案均在本機處理。</li><li><strong>無雲端伺服器</strong> — 我們不營運、維護或使用任何第三方雲端伺服器或資料庫來保存您的軌跡或媒體。</li></ul>
+            <h2>我們不蒐集的資料</h2><ul class="no-list"><li><span class="icon">✕</span> 無分析或使用追蹤</li><li><span class="icon">✕</span> 無廣告 SDK 或廣告識別碼</li><li><span class="icon">✕</span> 無第三方資料共享</li><li><span class="icon">✕</span> 無使用者帳號或註冊</li><li><span class="icon">✕</span> 無向我們伺服器的網路請求（我們沒有伺服器）</li><li><span class="icon">✕</span> 無向第三方的崩潰報告</li></ul>
+            <h2>第三方共享</h2><p>我們<strong>不會</strong>與任何第三方共享、出售、出租或交易您的個人資料。</p><h2>資料刪除</h2><ul class="yes-list"><li><strong>刪除 GPS 軌跡</strong> — 在應用內刪除單個月份日誌、清理過期日誌，或刪除所有本機 GPS 日誌資料。</li><li><strong>清除處理記錄</strong> — 清空忽略媒體記錄、待處理掃描結果和匯入日誌來源。刪除 GPS 日誌不會刪除您的照片或影片，但可能影響之後的位置匹配。</li><li><strong>刪除所有資料</strong> — 前往 <strong>設定 &gt; 儲存管理</strong> 刪除所有本機儲存的應用資料。</li><li><strong>解除安裝</strong> — 從裝置上刪除應用將刪除應用關聯的本機資料。</li><li><strong>iCloud 資料</strong> — 如果您使用了 iCloud 同步，可以透過裝置的 iCloud 儲存設定管理和刪除同步資料。</li></ul>
+            <h2>兒童隱私</h2><p>影像軌跡不會故意蒐集 13 歲以下兒童的個人資訊。本應用不要求建立任何帳號或輸入個人資訊。</p><h2>政策變更</h2><p>我們可能會不時更新本隱私政策。任何變更將在應用內和本頁面上以更新的生效日期反映。</p><h2>聯絡我們</h2><p>如果您對本隱私政策有任何問題或疑慮，請透過以下方式聯絡我們：</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
+        </div>
 
-            <h2>数据存储方式</h2>
-            <ul class="yes-list">
-                <li><strong>默认本地存储</strong> — GPS 轨迹、设置、扫描断点、忽略记录、导入来源记录和处理数据默认保存在您的设备上，除非您主动开启 iCloud 同步。</li>
-                <li><strong>可选 iCloud 同步</strong> — Pro 用户可以将 GPS 日志数据同步到自己个人的 Apple iCloud Documents 存储。我们不运营轨迹服务器，也无法访问您的 iCloud 数据。</li>
-                <li><strong>用户主动导入与导出</strong> — 导入 .bin 文件、导出 BIN/GPX 文件仅会在您主动选择相关操作时发生。来自 Finder、SD 卡、外置硬盘或系统照片库的文件均在本地处理。</li>
-                <li><strong>无云服务器</strong> — 我们不运营、维护或使用任何第三方云服务器或数据库来保存您的轨迹或媒体。</li>
-            </ul>
+        <div id="content-ja" class="content-section">
+            <h2>はじめに</h2><p>PinShot（以下「本アプリ」）は、Robin（以下「当方」）が開発した iOS および macOS 向けの GPS 写真/動画ジオタグアプリです。本プライバシーポリシーは、PinShot の利用時に情報をどのように処理、保存、保護するかを説明します。</p><p>当方はお客様のプライバシー保護を重視しています。PinShot は<span class="highlight">プライバシー優先の設計</span>であり、初期状態ではデータはお客様のデバイス上に保存され、お客様自身が管理します。</p>
+            <h2>収集する情報</h2><p>PinShot は以下のデータを<span class="highlight">デバイス上でローカルに</span>処理します。</p>
+            <table><thead><tr><th>データ種別</th><th>内容</th><th>目的</th></tr></thead><tbody><tr><td>GPS 座標</td><td>緯度、経度、高度、速度、方位、タイムスタンプ</td><td>位置トラックを記録し、撮影時刻と照合してジオタグを付与するため</td></tr><tr><td>モーションと高度データ</td><td>デバイスの移動状態、および利用可能な場合は気圧計による相対高度</td><td>静止状態の検出、GPS 記録頻度の低減、省電力、高度記録の改善</td></tr><tr><td>写真と動画のメタデータ</td><td>写真ライブラリまたは選択したファイルの EXIF/XMP、撮影時刻、メディア種別、既存の位置情報</td><td>GPS データのないメディアを識別し、写真、Live Photos、動画に位置座標を書き込むため</td></tr><tr><td>ローカル処理データ</td><td>アプリ設定、スキャンのチェックポイント、保留中メディア ID、無視したメディア ID、インポートしたログソース名、録画セッション</td><td>スキャン再開、無視済みメディアの再表示防止、GPS データソースの選択、録画期間内の撮影確認</td></tr><tr><td>位置ログファイル</td><td>ローカル、インポート、エクスポート、または任意で同期される .bin GPS ログと関連セッションファイル</td><td>トラック保存、所有デバイス間でのログ転送、写真/動画のジオタグ付与</td></tr></tbody></table>
+            <h2>データの保存方法</h2><ul class="yes-list"><li><strong>初期状態ではローカル保存</strong> — GPS トラック、設定、スキャンチェックポイント、無視項目、インポート元記録、処理データは、iCloud 同期を明示的に有効にしない限りデバイス上に保存されます。</li><li><strong>任意の iCloud 同期</strong> — Pro ユーザーは Apple の iCloud Documents ストレージを使って自身のアカウントに GPS ログを同期できます。当方はトラック用サーバーを運営しておらず、お客様の iCloud データにアクセスできません。</li><li><strong>ユーザー主導のインポート/エクスポート</strong> — .bin のインポートや BIN/GPX のエクスポートは、お客様が選択した場合にのみ作成されます。Finder、SD カード、外部ドライブ、写真ライブラリから選択されたファイルはローカルで処理されます。</li><li><strong>クラウドサーバーなし</strong> — トラックやメディアを保存するための第三者クラウドサーバーやデータベースを運営、維持、使用しません。</li></ul>
+            <h2>収集しないデータ</h2><ul class="no-list"><li><span class="icon">✕</span> 分析または利用状況トラッキングなし</li><li><span class="icon">✕</span> 広告 SDK または広告 ID なし</li><li><span class="icon">✕</span> 第三者へのデータ共有なし</li><li><span class="icon">✕</span> ユーザーアカウントまたは登録なし</li><li><span class="icon">✕</span> 当方サーバーへのネットワークリクエストなし（当方はサーバーを持ちません）</li><li><span class="icon">✕</span> 第三者へのクラッシュレポート送信なし</li></ul>
+            <h2>第三者共有</h2><p>当方は個人データを第三者と共有、販売、貸与、取引しません。</p><h2>データ削除</h2><ul class="yes-list"><li><strong>GPS トラックの削除</strong> — アプリ内で月別ログを削除、期限切れログを整理、またはすべてのローカル GPS ログを削除できます。</li><li><strong>処理記録の消去</strong> — 無視したメディア、保留中のスキャン結果、インポート元記録を消去できます。GPS ログの削除は写真や動画を削除しませんが、今後の位置照合に影響する場合があります。</li><li><strong>すべてのデータ削除</strong> — <strong>設定 &gt; ストレージ管理</strong> からローカルに保存されたアプリデータを削除できます。</li><li><strong>アンインストール</strong> — デバイスからアプリを削除すると関連するローカルデータも削除されます。</li><li><strong>iCloud データ</strong> — iCloud 同期を使用した場合、デバイスの iCloud ストレージ設定から同期データを管理および削除できます。</li></ul>
+            <h2>児童のプライバシー</h2><p>PinShot は 13 歳未満の児童から個人情報を故意に収集しません。本アプリはアカウント作成や個人情報入力を必要としません。</p><h2>ポリシーの変更</h2><p>本プライバシーポリシーは随時更新される場合があります。変更はアプリ内および本ページ上で更新後の施行日とともに反映されます。</p><h2>お問い合わせ</h2><p>本プライバシーポリシーについて質問や懸念がある場合は、以下までご連絡ください。</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
+        </div>
 
-            <h2>我们不收集的数据</h2>
-            <ul class="no-list">
-                <li><span class="icon">✕</span> 无分析或使用跟踪</li>
-                <li><span class="icon">✕</span> 无广告 SDK 或广告标识符</li>
-                <li><span class="icon">✕</span> 无第三方数据共享</li>
-                <li><span class="icon">✕</span> 无用户账户或注册</li>
-                <li><span class="icon">✕</span> 无向我们服务器的网络请求（我们没有服务器）</li>
-                <li><span class="icon">✕</span> 无向第三方的崩溃报告</li>
-            </ul>
+        <div id="content-es" class="content-section">
+            <h2>Introducción</h2><p>PinShot ("la App") es una aplicación de geoetiquetado GPS de fotos y videos para iOS y macOS desarrollada por Robin ("nosotros"). Esta Política de privacidad explica cómo procesamos, almacenamos y protegemos la información cuando usas PinShot.</p><p>Nos comprometemos a proteger tu privacidad. PinShot está diseñado con una <span class="highlight">arquitectura centrada en la privacidad</span>: tus datos permanecen en tu dispositivo de forma predeterminada y bajo tu control.</p>
+            <h2>Información que recopilamos</h2><p>PinShot recopila los siguientes datos <span class="highlight">localmente en tu dispositivo</span>:</p>
+            <table><thead><tr><th>Tipo de dato</th><th>Detalles</th><th>Finalidad</th></tr></thead><tbody><tr><td>Coordenadas GPS</td><td>Latitud, longitud, altitud, velocidad, rumbo y marca de tiempo</td><td>Registrar rutas y vincular horarios de captura para geoetiquetar</td></tr><tr><td>Movimiento y altitud</td><td>Estado de movimiento del dispositivo y, si está disponible, altitud relativa basada en barómetro</td><td>Detectar quietud, reducir la frecuencia de registro GPS, ahorrar batería y mejorar lecturas de altitud</td></tr><tr><td>Metadatos de fotos y videos</td><td>EXIF/XMP, hora de captura, tipo de medio y ubicación existente desde la fototeca o archivos seleccionados</td><td>Identificar medios sin GPS y escribir coordenadas en fotos, Live Photos y videos</td></tr><tr><td>Datos de procesamiento local</td><td>Ajustes de la App, puntos de reanudación de escaneo, identificadores pendientes o ignorados, nombres de fuentes importadas y sesiones de grabación</td><td>Reanudar escaneos, evitar mostrar de nuevo medios ignorados, elegir fuentes GPS y verificar capturas dentro de una sesión</td></tr><tr><td>Archivos de registro de ubicación</td><td>Registros GPS .bin locales, importados, exportados u opcionalmente sincronizados y archivos de sesión relacionados</td><td>Guardar rutas, transferir registros entre tus dispositivos y apoyar el geoetiquetado</td></tr></tbody></table>
+            <h2>Cómo se almacenan tus datos</h2><ul class="yes-list"><li><strong>Local de forma predeterminada</strong> — Las rutas GPS, ajustes, puntos de escaneo, registros ignorados, fuentes importadas y datos de procesamiento se guardan en tu dispositivo salvo que actives iCloud Sync.</li><li><strong>Sincronización iCloud opcional</strong> — Los usuarios Pro pueden sincronizar registros GPS en su propia cuenta mediante iCloud Documents de Apple. No operamos servidores de rutas ni tenemos acceso a tus datos de iCloud.</li><li><strong>Importación y exportación controladas por el usuario</strong> — Los archivos .bin importados y las exportaciones BIN/GPX se crean solo cuando eliges esas acciones. Los archivos de Finder, tarjetas SD, discos externos o la fototeca se procesan localmente.</li><li><strong>Sin servidores en la nube</strong> — No operamos ni usamos servidores o bases de datos de terceros para tus rutas o medios.</li></ul>
+            <h2>Datos que NO recopilamos</h2><ul class="no-list"><li><span class="icon">✕</span> Sin analíticas ni seguimiento de uso</li><li><span class="icon">✕</span> Sin SDK publicitarios ni identificadores de anuncios</li><li><span class="icon">✕</span> Sin intercambio de datos con terceros</li><li><span class="icon">✕</span> Sin cuentas de usuario ni registro</li><li><span class="icon">✕</span> Sin solicitudes de red a nuestros servidores (no tenemos servidores)</li><li><span class="icon">✕</span> Sin informes de fallos a terceros</li></ul>
+            <h2>Compartición con terceros</h2><p>No compartimos, vendemos, alquilamos ni comercializamos tus datos personales con terceros.</p><h2>Eliminación de datos</h2><ul class="yes-list"><li><strong>Eliminar rutas GPS</strong> — Elimina registros mensuales, limpia registros vencidos o borra todos los datos GPS locales desde la App.</li><li><strong>Borrar registros de procesamiento</strong> — Borra medios ignorados, resultados pendientes y fuentes importadas. Eliminar registros GPS no borra tus fotos o videos, pero puede afectar futuras coincidencias de ubicación.</li><li><strong>Eliminar todos los datos</strong> — Ve a <strong>Ajustes &gt; Gestión de almacenamiento</strong> para eliminar los datos locales de la App.</li><li><strong>Desinstalación</strong> — Eliminar la App del dispositivo elimina sus datos locales asociados.</li><li><strong>Datos de iCloud</strong> — Si usaste iCloud Sync, puedes gestionar y eliminar datos sincronizados desde los ajustes de almacenamiento de iCloud.</li></ul>
+            <h2>Privacidad infantil</h2><p>PinShot no recopila deliberadamente información personal de menores de 13 años. La App no requiere crear cuenta ni introducir información personal.</p><h2>Cambios en esta política</h2><p>Podemos actualizar esta Política de privacidad ocasionalmente. Los cambios se reflejarán en la App y en esta página con una fecha de entrada en vigor actualizada.</p><h2>Contacto</h2><p>Si tienes preguntas o inquietudes sobre esta Política de privacidad, contáctanos:</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
+        </div>
 
-            <h2>第三方共享</h2>
-            <p>我们<strong>不会</strong>与任何第三方共享、出售、出租或交易您的个人数据。</p>
-
-            <h2>数据删除</h2>
-            <ul class="yes-list">
-                <li><strong>删除 GPS 轨迹</strong> — 在应用内删除单个月份日志、清理过期日志，或删除所有本地 GPS 日志数据。</li>
-                <li><strong>清除处理记录</strong> — 清空忽略媒体记录、待处理扫描结果和导入日志来源。删除 GPS 日志不会删除您的照片或视频，但可能影响之后的位置匹配。</li>
-                <li><strong>删除所有数据</strong> — 前往 <strong>设置 &gt; 存储管理</strong> 删除所有本地存储的应用数据。</li>
-                <li><strong>卸载应用</strong> — 从设备上删除应用将删除应用关联的本地数据。</li>
-                <li><strong>iCloud 数据</strong> — 如果您使用了 iCloud 同步，可以通过设备的 iCloud 存储设置管理和删除同步数据。</li>
-            </ul>
-
-            <h2>儿童隐私</h2>
-            <p>影像轨迹不会故意收集 13 岁以下儿童的个人信息。本应用不要求创建任何账户或输入个人信息。</p>
-
-            <h2>政策变更</h2>
-            <p>我们可能会不时更新本隐私政策。任何变更将在应用内和本页面上以更新的生效日期反映。</p>
-
-            <h2>联系我们</h2>
-            <p>如果您对本隐私政策有任何问题或疑虑，请通过以下方式联系我们：</p>
-            <div class="contact-box">
-                <a href="mailto:414108176@qq.com">414108176@qq.com</a>
-            </div>
+        <div id="content-fr" class="content-section">
+            <h2>Introduction</h2><p>PinShot ("l'App") est une application iOS et macOS de géomarquage GPS de photos/vidéos développée par Robin ("nous"). Cette Politique de confidentialité explique comment nous traitons, stockons et protégeons les informations lorsque vous utilisez PinShot.</p><p>Nous nous engageons à protéger votre vie privée. PinShot est conçu avec une <span class="highlight">architecture axée sur la confidentialité</span> : vos données restent par défaut sur votre appareil et sous votre contrôle.</p>
+            <h2>Informations que nous collectons</h2><p>PinShot collecte les données suivantes <span class="highlight">localement sur votre appareil</span> :</p>
+            <table><thead><tr><th>Type de donnée</th><th>Détails</th><th>Finalité</th></tr></thead><tbody><tr><td>Coordonnées GPS</td><td>Latitude, longitude, altitude, vitesse, cap, horodatage</td><td>Enregistrer les traces et faire correspondre les heures de capture pour le géomarquage</td></tr><tr><td>Mouvement et altitude</td><td>État de mouvement de l'appareil et, si disponible, altitude relative issue du baromètre</td><td>Détecter l'immobilité, réduire la fréquence GPS, économiser la batterie et améliorer l'altitude</td></tr><tr><td>Métadonnées photo et vidéo</td><td>EXIF/XMP, heure de capture, type de média et localisation existante depuis la photothèque ou les fichiers sélectionnés</td><td>Identifier les médias sans GPS et écrire les coordonnées dans les photos, Live Photos et vidéos</td></tr><tr><td>Données de traitement local</td><td>Réglages de l'App, points de reprise d'analyse, identifiants de médias en attente ou ignorés, noms de sources importées et sessions d'enregistrement</td><td>Reprendre les analyses, éviter de réafficher les médias ignorés, choisir les sources GPS et vérifier les captures pendant une session</td></tr><tr><td>Fichiers de journal de localisation</td><td>Journaux GPS .bin locaux, importés, exportés ou synchronisés en option, et fichiers de session associés</td><td>Stocker les traces, transférer les journaux entre vos appareils et prendre en charge le géomarquage</td></tr></tbody></table>
+            <h2>Stockage de vos données</h2><ul class="yes-list"><li><strong>Local par défaut</strong> — Les traces GPS, réglages, points d'analyse, enregistrements ignorés, sources importées et données de traitement sont stockés sur votre appareil sauf si vous activez explicitement iCloud Sync.</li><li><strong>Synchronisation iCloud optionnelle</strong> — Les utilisateurs Pro peuvent synchroniser les journaux GPS vers leur propre compte via iCloud Documents d'Apple. Nous n'exploitons aucun serveur de traces et n'avons pas accès à vos données iCloud.</li><li><strong>Importation et exportation contrôlées par l'utilisateur</strong> — Les fichiers .bin importés et les exports BIN/GPX ne sont créés que lorsque vous choisissez ces actions. Les fichiers sélectionnés depuis Finder, cartes SD, disques externes ou la photothèque sont traités localement.</li><li><strong>Aucun serveur cloud</strong> — Nous n'exploitons, ne maintenons et n'utilisons aucun serveur cloud ou base de données tiers pour vos traces ou médias.</li></ul>
+            <h2>Données que nous ne collectons PAS</h2><ul class="no-list"><li><span class="icon">✕</span> Aucune analyse ni suivi d'utilisation</li><li><span class="icon">✕</span> Aucun SDK publicitaire ni identifiant publicitaire</li><li><span class="icon">✕</span> Aucun partage de données avec des tiers</li><li><span class="icon">✕</span> Aucun compte utilisateur ni inscription</li><li><span class="icon">✕</span> Aucune requête réseau vers nos serveurs (nous n'en avons pas)</li><li><span class="icon">✕</span> Aucun rapport de crash envoyé à des tiers</li></ul>
+            <h2>Partage avec des tiers</h2><p>Nous ne partageons, vendons, louons ni échangeons vos données personnelles avec aucun tiers.</p><h2>Suppression des données</h2><ul class="yes-list"><li><strong>Supprimer les traces GPS</strong> — Supprimez des journaux mensuels, nettoyez les journaux expirés ou effacez toutes les données GPS locales dans l'App.</li><li><strong>Effacer les enregistrements de traitement</strong> — Effacez les médias ignorés, résultats en attente et sources importées. Supprimer les journaux GPS ne supprime pas vos photos ou vidéos, mais peut affecter les futures correspondances de localisation.</li><li><strong>Supprimer toutes les données</strong> — Allez dans <strong>Réglages &gt; Gestion du stockage</strong> pour supprimer les données locales de l'App.</li><li><strong>Désinstallation</strong> — Supprimer l'App de votre appareil supprime ses données locales associées.</li><li><strong>Données iCloud</strong> — Si vous avez utilisé iCloud Sync, vous pouvez gérer et supprimer les données synchronisées dans les réglages de stockage iCloud.</li></ul>
+            <h2>Confidentialité des enfants</h2><p>PinShot ne collecte pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. L'App ne nécessite pas de création de compte ni de saisie d'informations personnelles.</p><h2>Modifications de cette politique</h2><p>Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. Toute modification sera reflétée dans l'App et sur cette page avec une date d'entrée en vigueur mise à jour.</p><h2>Nous contacter</h2><p>Pour toute question ou préoccupation concernant cette Politique de confidentialité, contactez-nous :</p><div class="contact-box"><a href="mailto:414108176@qq.com">414108176@qq.com</a></div>
         </div>
     </main>
 
-    <footer>
-        <p>Effective Date: 2026-07-03 &nbsp;|&nbsp; © 2026 Robin. All rights reserved.</p>
-    </footer>
+    <footer><p>Effective Date: 2026-07-03 &nbsp;|&nbsp; © 2026 Robin. All rights reserved.</p></footer>
 
     <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
-            document.getElementById('content-' + lang).classList.add('active');
-            document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        const pageText = {
+            en: { appTitle: "PinShot", title: "PinShot — Privacy Policy", subtitle: "Privacy Policy", htmlLang: "en" },
+            "zh-Hans": { appTitle: "影像轨迹", title: "影像轨迹 — 隐私政策", subtitle: "隐私政策", htmlLang: "zh-Hans" },
+            "zh-Hant": { appTitle: "影像軌跡", title: "影像軌跡 — 隱私政策", subtitle: "隱私政策", htmlLang: "zh-Hant" },
+            ja: { appTitle: "PinShot", title: "PinShot — プライバシーポリシー", subtitle: "プライバシーポリシー", htmlLang: "ja" },
+            es: { appTitle: "PinShot", title: "PinShot — Política de privacidad", subtitle: "Política de privacidad", htmlLang: "es" },
+            fr: { appTitle: "PinShot", title: "PinShot — Politique de confidentialité", subtitle: "Politique de confidentialité", htmlLang: "fr" }
+        };
 
-            if (lang === 'zh') {
-                document.getElementById('app-title').textContent = '📍 影像轨迹';
-                document.getElementById('subtitle').textContent = '隐私政策';
-                document.title = '影像轨迹 — 隐私政策';
-            } else {
-                document.getElementById('app-title').textContent = '📍 PinShot';
-                document.getElementById('subtitle').textContent = 'Privacy Policy';
-                document.title = 'PinShot — Privacy Policy';
+        function normalizeLanguage(lang) {
+            const value = (lang || "").replace(/_/g, "-").toLowerCase();
+            if (value === "zh-hant" || value.startsWith("zh-hant-") || value.includes("-tw") || value.includes("-hk") || value.includes("-mo")) { return "zh-Hant"; }
+            if (value === "zh-hans" || value.startsWith("zh-hans-") || value.startsWith("zh")) { return "zh-Hans"; }
+            if (value.startsWith("ja")) { return "ja"; }
+            if (value.startsWith("es")) { return "es"; }
+            if (value.startsWith("fr")) { return "fr"; }
+            return "en";
+        }
+
+        function preferredLanguage() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("lang") || navigator.language || "en";
+        }
+
+        function switchLanguage(lang, updateUrl = true) {
+            const activeLang = normalizeLanguage(lang);
+            document.querySelectorAll(".content-section").forEach(el => el.classList.remove("active"));
+            document.querySelectorAll(".lang-switcher button").forEach(el => el.classList.remove("active"));
+            document.getElementById("content-" + activeLang).classList.add("active");
+            document.getElementById("btn-" + activeLang).classList.add("active");
+            document.documentElement.lang = pageText[activeLang].htmlLang;
+            document.getElementById("app-title").textContent = pageText[activeLang].appTitle;
+            document.getElementById("subtitle").textContent = pageText[activeLang].subtitle;
+            document.title = pageText[activeLang].title;
+
+            if (updateUrl && window.history && window.history.replaceState) {
+                const url = new URL(window.location.href);
+                url.searchParams.set("lang", activeLang);
+                window.history.replaceState(null, "", url.toString());
             }
         }
+
+        document.addEventListener("DOMContentLoaded", () => switchLanguage(preferredLanguage(), false));
     </script>
 </body>
 </html>
