@@ -57,13 +57,15 @@ Image-generation prompt:
 
 ## Release status
 
-Prepared for local review only. No remote push, GitHub Pages deployment, or App Store metadata change has been performed. Confirm the actual GitHub Pages source branch/folder before any approved publication; the local checkout branch is not proof of the live publishing source.
+The owner approved publication on 2026-11-11. GitHub Pages is verified to publish main / (root). This release branch is based on origin/main at 6059a24 and preserves that live branch’s newer legal pages, rather than replacing them with the older local preview copies. App-version-dependent guide content is explicitly labeled 1.3 or later. Deployment verification is recorded after publication.
 
 Local verification on 2026-11-11: all four product/guide pages, internal anchors and 18 linked local page/asset URLs passed checks. English and Chinese language navigation, mobile menu, screenshot tabs (including keyboard navigation), FAQ expansion and the existing Chinese privacy URL were checked in a browser. Responsive layouts were inspected at 390 px and 1280 px CSS viewport widths, with an additional narrow-screen check. Both existing legal-file hashes remain identical to the starting versions.
 
-Baseline SHA-256 hashes of the preserved legal files:
+SHA-256 hashes of the preserved live legal files from origin/main (6059a24):
 
 ```text
-0632ae3b32794874128a0fb2fc4049d29699d1d0b15a2f5ddc4f047be8424b58  privacy/index.html
-1ee3f902d67d4fc2bdf1769f605ecef3844fb8a669b0ab27e6d908f6c75d22f3  privacy/terms.html
+8f7153f224db6abac9a00104e5383e57e2044ac4b3c0bfb7bb8cfe30ed62f65d  privacy/index.html
+177c904d215b3d68925c66658f91541250113c9c121d513eec1eae839a45cf22  privacy/terms.html
 ```
+
+The samples/ package is synthetic demonstration data. It contains a generated labeled JPEG with an explicit original EXIF capture time and a fictional GPX track. It is provided for a controlled first-use/review example, not as a real customer trip.
