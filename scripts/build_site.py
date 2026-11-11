@@ -11,6 +11,7 @@ import json
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = "https://robincoderzhao.github.io/pinshot-legal/"
 STORE = "https://apps.apple.com/app/id6784540498"
+WEBSITE_STORE = json.loads((ROOT / "scripts/campaign_links.json").read_text(encoding="utf-8"))["website"]
 
 PATHS = {
     "arrow": '<path d="M5 12h14m-6-6 6 6-6 6"/>',
@@ -81,9 +82,9 @@ COPY = {
  }
 }
 
-def button(label, cls="", href=STORE):
+def button(label, cls="", href=WEBSITE_STORE):
     external = ' target="_blank" rel="noopener noreferrer"' if href.startswith("https://apps.apple.com") else ""
-    return f'<a class="button {cls}" href="{href}"{external}>{label}{icon("external" if external else "arrow",17)}</a>'
+    return f'<a class="button {cls}" href="{escape(href, quote=True)}"{external}>{label}{icon("external" if external else "arrow",17)}</a>'
 
 def text_link(label, href):
     return f'<a class="text-link" href="{href}">{label}<span class="arrow" aria-hidden="true">↗</span></a>'
