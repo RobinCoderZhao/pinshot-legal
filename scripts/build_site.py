@@ -7,6 +7,7 @@ Never writes to privacy/ or edits the existing legal documents.
 from pathlib import Path
 from html import escape
 import json
+import migration_content
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = "https://robincoderzhao.github.io/pinshot-legal/"
@@ -89,9 +90,9 @@ def button(label, cls="", href=WEBSITE_STORE):
 def text_link(label, href):
     return f'<a class="text-link" href="{href}">{label}<span class="arrow" aria-hidden="true">↗</span></a>'
 
-def document_head(c, locale, guide, root):
-    path = ("zh/" if locale=="zh" else "") + ("guide/" if guide else "")
-    en_path = "guide/" if guide else ""
+def document_head(c, locale, guide, root, section_path=None):
+    en_path = section_path if section_path is not None else ("guide/" if guide else "")
+    path = ("zh/" if locale=="zh" else "") + en_path
     title = c["guide_title"] + " — PinShot" if guide else c["title"]
     desc = c["guide_description"] if guide else c["description"]
     schema = {"@context":"https://schema.org","@type":"SoftwareApplication","name":"PinShot","applicationCategory":"PhotographyApplication","operatingSystem":"iOS 17.0 or later; iPadOS 17.0 or later; macOS 14.0 or later","url":PUBLIC+path,"downloadUrl":STORE,"description":desc}
@@ -111,10 +112,10 @@ def document_head(c, locale, guide, root):
 </head><body>
 <a class="skip-link" href="#main">{c['skip']}</a>'''
 
-def header(c, locale, guide, root):
+def header(c, locale, guide, root, section_path=None):
     home = root + ("zh/" if locale=="zh" else "")
-    other = root + ("" if locale=="zh" else "zh/") + ("guide/" if guide else "")
-    nav = "".join(f'<a href="{home if guide else ""}#{section}">{label}</a>' for section,label in zip(["how-it-works","the-app","pro","faq"],c["nav"]))
+    other = root + ("" if locale=="zh" else "zh/") + (section_path if section_path is not None else ("guide/" if guide else ""))
+    nav = "".join(f'<a href="{home if guide or section_path else ""}#{section}">{label}</a>' for section,label in zip(["how-it-works","the-app","pro","faq"],c["nav"]))
     return f'''<header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="{home}" aria-label="PinShot {c['home']}"><img src="{root}assets/images/app-icon.png" width="37" height="37" alt=""><span>PinShot<small>{c['brand_small']}</small></span></a>
 <nav class="desktop-nav" aria-label="{c['nav_label']}">{nav}</nav>
@@ -125,7 +126,7 @@ def footer(c, locale, root):
     legal_lang = "zh-Hans" if locale=="zh" else "en"
     guide_link = root + ("zh/" if locale=="zh" else "") + "guide/"
     home = root + ("zh/" if locale=="zh" else "")
-    return f'''<footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="brand" href="{home}"><img src="{root}assets/images/app-icon.png" width="29" height="29" alt="">PinShot</a><nav class="footer-links" aria-label="{'页脚导航' if locale=='zh' else 'Footer navigation'}"><a href="{guide_link}">{c['footer_guide']}</a><a href="{root}privacy/?lang={legal_lang}">{c['footer_privacy']}</a><a href="{root}privacy/terms.html?lang={legal_lang}">{c['footer_terms']}</a><a href="mailto:414108176@qq.com">{c['footer_contact']}</a></nav></div><div class="footer-bottom"><p>{c['footer_note']}</p><span>{c['copyright']}</span></div></div></footer></body></html>'''
+    return f'''<footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="brand" href="{home}"><img src="{root}assets/images/app-icon.png" width="29" height="29" alt="">PinShot</a><nav class="footer-links" aria-label="{'页脚导航' if locale=='zh' else 'Footer navigation'}"><a href="{guide_link}">{c['footer_guide']}</a><a href="{home}gpx-migration/">{'GPX 迁移指南' if locale=='zh' else 'GPX migration'}</a><a href="{root}privacy/?lang={legal_lang}">{c['footer_privacy']}</a><a href="{root}privacy/terms.html?lang={legal_lang}">{c['footer_terms']}</a><a href="mailto:414108176@qq.com">{c['footer_contact']}</a></nav></div><div class="footer-bottom"><p>{c['footer_note']}</p><span>{c['copyright']}</span></div></div></footer></body></html>'''
 
 def check_list(items):
     return '<ul class="feature-list">'+''.join(f'<li>{icon("check",16)}<span>{item}</span></li>' for item in items)+'</ul>'
@@ -188,13 +189,29 @@ gpx_zh = gpx_zh.replace('../../../samples/', '../../samples/')
 GUIDE_BODY['en'] = GUIDE_BODY['en'].replace('<section id="match">', gpx_en + '<section id="match">')
 GUIDE_BODY['zh'] = GUIDE_BODY['zh'].replace('<section id="match">', gpx_zh + '<section id="match">')
 
+def migration_page(locale):
+    c = dict(COPY[locale])
+    c.update({key: migration_content.COPY[locale][key] for key in ("title", "description")})
+    root = "../../" if locale == "zh" else "../"
+    return (document_head(c, locale, False, root, section_path="gpx-migration/")
+            + header(c, locale, False, root, section_path="gpx-migration/")
+            + migration_content.content(locale, root, WEBSITE_STORE)
+            + footer(c, locale, root))
+
+COPY['en']['faqs'][4][1] += ' <a class="text-link" href="gpx-migration/">See the GPX migration guide ↗</a>'
+COPY['zh']['faqs'][4][1] += ' <a class="text-link" href="gpx-migration/">查看 GPX 迁移指南 ↗</a>'
+GUIDE_BODY['en'] = GUIDE_BODY['en'].replace('<h3>Moving from Geotag Photos Pro</h3>', '<h3>Moving from Geotag Photos Pro</h3><p><a class="text-link" href="../gpx-migration/">Migration steps, video and sample pack ↗</a></p>')
+GUIDE_BODY['zh'] = GUIDE_BODY['zh'].replace('<h3>从 Geotag Photos Pro 迁移</h3>', '<h3>从 Geotag Photos Pro 迁移</h3><p><a class="text-link" href="../gpx-migration/">查看分步演示、视频与示例包 ↗</a></p>')
+
 for locale in ['en','zh']:
     dest=ROOT/('zh' if locale=='zh' else '')
     dest.mkdir(parents=True,exist_ok=True)
     (dest/'index.html').write_text(home_page(locale),encoding='utf-8')
     (dest/'guide').mkdir(exist_ok=True)
     (dest/'guide'/'index.html').write_text(guide_page(locale),encoding='utf-8')
-    print(f'Rendered {locale} home and guide')
+    (dest/'gpx-migration').mkdir(exist_ok=True)
+    (dest/'gpx-migration'/'index.html').write_text(migration_page(locale),encoding='utf-8')
+    print(f'Rendered {locale} home, guide and migration page')
 
-urls=['','zh/','guide/','zh/guide/','privacy/','privacy/terms.html']
+urls=['','zh/','guide/','zh/guide/','gpx-migration/','zh/gpx-migration/','privacy/','privacy/terms.html']
 (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{PUBLIC}{path}</loc></url>\n' for path in urls)+'</urlset>\n',encoding='utf-8')
