@@ -108,6 +108,7 @@ def content(locale, root, store):
     asset_root = Path(__file__).resolve().parents[1] / 'assets' / 'videos'
     has_video = all((asset_root / f'pinshot-gpx-demo-{language}{suffix}').is_file()
                     for suffix in ('.mp4', '.poster.jpg', '.vtt'))
+    watch_target = "demo-video" if has_video else "demo"
     if not has_video:
         c.update({
             'watch': '试用示例包' if locale == 'zh' else 'Try the sample pack',
@@ -130,12 +131,12 @@ def content(locale, root, store):
                 cues.append('<li>' + '<br>'.join(escape(line) for line in lines[timing + 1:]) + '</li>')
         transcript = f'<details class="migration-transcript"><summary>{c["transcript"]}</summary><ol>{"".join(cues)}</ol></details>'
     if has_video:
-        media = f'''<div class="migration-video"><video controls playsinline preload="metadata" poster="{video}.poster.jpg" aria-label="{c['video_label']}"><source src="{video}.mp4" type="video/mp4"><track kind="captions" src="{video}.vtt" srclang="{'zh-Hans' if locale=='zh' else 'en'}" label="{'简体中文' if locale=='zh' else 'English'}">{c['video_label']}</video><div class="migration-video-links"><a href="{video}.mp4" download>{c['video_download']} ↓</a><a href="{video}.vtt" download>{c['captions_download']} ↓</a></div>{transcript}</div>'''
+        media = f'''<div class="migration-video" id="demo-video"><video controls playsinline preload="metadata" poster="{video}.poster.jpg" aria-label="{c['video_label']}"><source src="{video}.mp4" type="video/mp4"><track kind="captions" src="{video}.vtt" srclang="{'zh-Hans' if locale=='zh' else 'en'}" label="{'简体中文' if locale=='zh' else 'English'}">{c['video_label']}</video><div class="migration-video-links"><a href="{video}.mp4" download>{c['video_download']} ↓</a><a href="{video}.vtt" download>{c['captions_download']} ↓</a></div>{transcript}</div>'''
     else:
         sample_label = '测试图片 · 原始拍摄时间 02:01 UTC · 初始无 GPS' if locale == 'zh' else 'Test image · Capture time 02:01 UTC · No GPS initially'
         media = f'''<figure class="migration-sample-figure"><img src="{root}assets/images/gpx-sample-photo.jpg" width="2400" height="1800" alt="{sample_label}"><figcaption>{sample_label}</figcaption><div class="migration-time-example"><span>GPX 02:00–02:04 UTC</span><strong>02:01 UTC</strong><span>{'拍摄时间在覆盖内' if locale=='zh' else 'Capture time inside coverage'}</span></div></figure>'''
     return f'''<main id="main" class="migration-page">
-<section class="migration-hero wrap"><div><p class="eyebrow">{c['eyebrow']}</p><h1>{c['heading']}</h1><p class="section-lead">{c['intro']}</p><div class="migration-actions">{cta}<a class="text-link" href="#demo">{c['watch']} ↓</a></div><p class="migration-requirement">{c['requirement']}</p></div><figure class="migration-screen"><img src="{root}assets/images/gpx-import-demo.jpg" alt="{c['image_alt']}" width="640" height="1302"><figcaption>{c['image_caption']}</figcaption></figure></section>
+<section class="migration-hero wrap"><div><p class="eyebrow">{c['eyebrow']}</p><h1>{c['heading']}</h1><p class="section-lead">{c['intro']}</p><div class="migration-actions">{cta}<a class="text-link" href="#{watch_target}">{c['watch']} ↓</a></div><p class="migration-requirement">{c['requirement']}</p></div><figure class="migration-screen"><img src="{root}assets/images/gpx-import-demo.jpg" alt="{c['image_alt']}" width="640" height="1302"><figcaption>{c['image_caption']}</figcaption></figure></section>
 <aside class="migration-notice wrap"><div><p class="eyebrow">GEOTAG PHOTOS PRO</p><h2>{c['notice_title']}</h2></div><div><p>{c['notice']}</p><a class="text-link" href="https://www.geotagphotos.net/" target="_blank" rel="noopener noreferrer">{c['source']} ↗</a><small>{c['checked']}</small></div></aside>
 <section class="section wrap"><div class="migration-heading"><h2>{c['steps_title']}</h2><p>{c['steps_intro']}</p></div><ol class="migration-steps">{steps}</ol></section>
 <section class="migration-demo" id="demo"><div class="wrap migration-demo-grid">{media}<div><p class="eyebrow">PINSHOT · GPX</p><h2>{c['demo_title']}</h2><p class="section-lead">{c['demo_body']}</p><div class="migration-sample"><h3>{c['sample_title']}</h3><p>{c['sample_body']}</p><a class="button light" href="{root}samples/pinshot-demo.zip" download>{c['sample_button']} ↓</a><p class="migration-small">{c['sample_note']}</p></div></div></div></section>

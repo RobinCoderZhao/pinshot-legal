@@ -1,0 +1,29 @@
+1
+00:00:00,000 --> 00:00:08,000
+Start with a recorded GPX
+Match a photo to a track recorded at the same time. This walkthrough uses clearly labeled synthetic demo data.
+
+2
+00:00:08,000 --> 00:00:18,000
+Check the track before import
+Review the map, recording times and coverage. Planned routes without timestamps cannot locate your photos.
+
+3
+00:00:18,000 --> 00:00:28,000
+Preview the matching location
+On this UTC+8 device, 10:01 means 02:01 UTC. The preview finds a location without changing the photo.
+
+4
+00:00:28,000 --> 00:00:36,000
+The sample photo is selected
+After manual selection, one item is ready for GPS tagging. Check that its capture time is covered before continuing.
+
+5
+00:00:36,000 --> 00:00:46,000
+Add the missing GPS location
+The result reports 1 success and no failures, skips or unmatched items. iPhone keeps the original and the GPS-tagged copy.
+
+6
+00:00:46,000 --> 00:00:56,000
+Check the location in Apple Photos
+Open Apple Photos to check the tagged copy’s map location. The original is kept; review the copy before any cleanup.

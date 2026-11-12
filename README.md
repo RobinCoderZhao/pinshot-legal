@@ -85,3 +85,11 @@ The hero is a cropped capture of the real PinShot GPX import screen on an isolat
 The pages work as standalone illustrated guides. Verified demonstration video is embedded only when the matching MP4, poster and WebVTT assets all exist under `assets/videos/`. Otherwise they present the sample image and downloadable GPX/photo package, without a broken or placeholder video player. Video post-production sources are maintained in the PinShot app repository under `marketing/migration/`.
 
 Downloaded third-party Panasonic camera samples are used only for local compatibility diagnosis. They are not included in this website or promotional videos.
+
+### Completed walkthrough videos
+
+Both migration pages include a 56-second, 1080×1920 H.264 walkthrough with real captured interface steps, a persistent synthetic-data label, downloadable MP4/VTT/SRT assets and an expandable text transcript. There is no audio. The two editions use Chinese and English captions over the same real Simplified Chinese interface; the English edition states this explicitly.
+
+The sequence includes the actual successful geotagging result and the tagged copy's location in Apple Photos. The sample photo's original capture time and both its Photos/embedded GPS coordinates were verified separately. The UTC+8 example time is explicitly explained as 10:01 local = 02:01 UTC.
+
+Validation: both files were fully decoded and all six keyframes reviewed; H.264, yuv420p, 30 fps, 56-second duration and faststart atom order were checked. Browser playback completed to the end, captions/transcripts loaded, and both locales were inspected at a 390-pixel mobile width. The mobile navigation and Escape behavior were checked. The watch link targets the player directly, and the Chinese mobile headline avoids an orphaned final word. Desktop layout and horizontal overflow were also checked.
